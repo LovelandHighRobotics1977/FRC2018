@@ -28,7 +28,6 @@ public class RobotMap {
 	public static final int DRIVE_FRONT_RIGHT_VICTOR = 1;
 	public static final int DRIVE_BACK_LEFT_VICTOR = 2;
 	public static final int DRIVE_BACK_RIGHT_VICTOR = 3;
-	//test
 	
 		public static final int XBOX_LEFT_X = 0;
 		/**
