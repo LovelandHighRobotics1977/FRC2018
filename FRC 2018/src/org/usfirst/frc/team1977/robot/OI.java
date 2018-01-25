@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team1977.robot;
 
+import org.usfirst.frc.team1977.robot.input.XBoxController;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -41,4 +43,36 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	
 	//Test
+	private static OI instance;
+	// XBox Controller references
+	private XBoxController driveJoystick;
+	//Other joystick will be put here as well
+	
+	public OI() {
+		driveJoystick = new XBoxController(0);
+		//Set other controller here once we know if it is used 
+		//manipulatorJoystick = new XBoxController(1);
+	}
+	
+	public void init() {
+		//Put things here when you want buttons to trigger
+		//Speed toggle
+		//driveJoystick.leftWhenPressed(new SpeedToggle());
+		//Turn functions for shoulders
+		//driveJoystick.rightWhileHeld(new TurnTime(100,-1));
+		//driveJoystick.leftWhileHeld(new TurnTime(100,1));
+		//180 turn function
+		//driveJoystick.rightWhenPressed(new TurnTime(500,1)); //THIS NEEDS TO BE Adjusted
+	}
+	
+	public static OI getInstance() {
+		if (instance == null) {
+			instance = new OI();
+		}
+		return instance;
+	}
+	
+	public XBoxController getDriveJoystick() {
+		return driveJoystick;
+	}
 }
