@@ -3,7 +3,7 @@ package org.usfirst.frc.team1977.robot.subsystems;
 import org.usfirst.frc.team1977.robot.RobotMap;
 import org.usfirst.frc.team1977.robot.commands.drive.UserDrive;
 
-import com.ctre.CANTalon;
+//import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -44,7 +44,7 @@ public class Drive extends Subsystem {
 	
 	public Drive(){
 		//Define motor controllers for drive train on test chassis
-		frontLeft = new Victor(RobotMap.DRIVE_FRONT_LEFT_VICTOR);
+	frontLeft = new Victor(RobotMap.DRIVE_FRONT_LEFT_VICTOR);
     	frontRight = new Victor(RobotMap.DRIVE_FRONT_RIGHT_VICTOR);
     	backLeft = new Victor(RobotMap.DRIVE_BACK_LEFT_VICTOR);
     	backRight = new Victor(RobotMap.DRIVE_BACK_RIGHT_VICTOR);
