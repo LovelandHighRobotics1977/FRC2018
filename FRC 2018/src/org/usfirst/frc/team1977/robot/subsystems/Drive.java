@@ -5,7 +5,6 @@ import org.usfirst.frc.team1977.robot.commands.drive.UserDrive;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.ControlMode;
 
 //import com.ctre.TalonSRX;
 
@@ -47,7 +46,7 @@ public class Drive extends Subsystem {
 	
 	public Drive(){
 		//Define motor controllers for drive train on test chassis
-		frontLeft = new TalonSRX(RobotMap.DRIVE_FRONT_LEFT_TALON);
+		frontLeft = new TalonSRX(RobotMap.DRIVE_FRONT_LEFT_TAlON);
     	frontRight = new TalonSRX(RobotMap.DRIVE_FRONT_RIGHT_TALON);
     	backLeft = new TalonSRX(RobotMap.DRIVE_BACK_LEFT_TALON);
     	backRight = new TalonSRX(RobotMap.DRIVE_BACK_RIGHT_TALON);
@@ -84,11 +83,12 @@ public class Drive extends Subsystem {
      * @param turn Turning power.  Pulled from the left and right triggers.
      */
 	
+	ControlMode iJustWantToSleep = ControlMode.PercentOutput;
 	public void drive(double hPower, double vPower, double turn) {
-        frontLeft.set(ControlMode.PercentOutput(vPower - hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
-        frontRight.set((-vPower - hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
-         backLeft.set((vPower + hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
-        backRight.set((-vPower + hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
+        frontLeft.set(iJustWantToSleep, (vPower - hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
+        frontRight.set(iJustWantToSleep, (-vPower - hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
+         backLeft.set(iJustWantToSleep, (vPower + hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
+        backRight.set(iJustWantToSleep, (-vPower + hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
     }
 	
 	public void stop() {
