@@ -12,7 +12,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team1977.robot.commands.CommandBase;
 import org.usfirst.frc.team1977.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1977.robot.commands.drive.DriveTime;
 import org.usfirst.frc.team1977.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -25,9 +28,10 @@ import org.usfirst.frc.team1977.robot.subsystems.ExampleSubsystem;
 public class Robot extends TimedRobot {
 	public static final ExampleSubsystem kExampleSubsystem
 			= new ExampleSubsystem();
-	public static OI m_oi;
+	public static OI oi;
+	public static CommandBase commandbase;
 
-	Command m_autonomousCommand;
+	Command autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	/**
@@ -36,12 +40,19 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-		m_oi = new OI();
+		oi = new OI();
+		oi.init();
+		commandbase.init();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
 
+	@Override
+	public void robotPeriodic() {
+		//System.out.println("This works");
+		
+	}
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
@@ -70,8 +81,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		m_autonomousCommand = m_chooser.getSelected();
-
+		//autonomousCommand = m_chooser.getSelected();
+		System.out.println("Autonomous running");
+		autonomousCommand = (new DriveTime( 0, 11, 20000));
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -80,8 +92,8 @@ public class Robot extends TimedRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.start();
+		if (autonomousCommand != null) {
+			autonomousCommand.start();
 		}
 	}
 
@@ -95,12 +107,13 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		System.out.println("Control?");
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.cancel();
+		if (autonomousCommand != null) {
+			autonomousCommand.cancel();
 		}
 	}
 

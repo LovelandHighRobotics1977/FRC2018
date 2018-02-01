@@ -18,7 +18,7 @@ public class DriveTime extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
-        requires(drive);
+        //requires(drive);
         
         vPowerMin = minSpeedVolts;
         vPowerMax = maxSpeedVolts;
@@ -26,6 +26,7 @@ public class DriveTime extends CommandBase {
         halfTime = startTime + (timeMillis / 2);
         endTime = startTime + timeMillis;
         rampInterval = timeMillis / ((vPowerMax - vPowerMin) / RAMP_RATE);
+        System.out.println("drive time is go");
     }
     
  // Called just before this Command runs the first time

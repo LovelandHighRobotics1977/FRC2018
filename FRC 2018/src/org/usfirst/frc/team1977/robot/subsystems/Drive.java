@@ -3,9 +3,12 @@ package org.usfirst.frc.team1977.robot.subsystems;
 import org.usfirst.frc.team1977.robot.RobotMap;
 import org.usfirst.frc.team1977.robot.commands.drive.UserDrive;
 
-//import com.ctre.CANTalon;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.wpilibj.Victor;
+//import com.ctre.TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -21,16 +24,16 @@ public class Drive extends Subsystem {
 	private boolean speedToggle = false;
 	//for speedToggle function to halve speed
 	
-	private Victor frontLeft;
-	private Victor frontRight;
-	private Victor backLeft;
-	private Victor backRight;
+	/*private TALON frontLeft;
+	private TALON frontRight;
+	private TALON backLeft;
+	private TALON backRight;*/
 	
 	
-	/*private CANTalon frontLeft;
-	private CANTalon frontRight;
-	private CANTalon backLeft;
-	private CANTalon backRight;*/
+	private TalonSRX frontLeft;
+	private TalonSRX frontRight;
+	private TalonSRX backLeft;
+	private TalonSRX backRight;
 	
 	
 	private UserDrive userDrive;
@@ -44,18 +47,18 @@ public class Drive extends Subsystem {
 	
 	public Drive(){
 		//Define motor controllers for drive train on test chassis
-	frontLeft = new Victor(RobotMap.DRIVE_FRONT_LEFT_VICTOR);
-    	frontRight = new Victor(RobotMap.DRIVE_FRONT_RIGHT_VICTOR);
-    	backLeft = new Victor(RobotMap.DRIVE_BACK_LEFT_VICTOR);
-    	backRight = new Victor(RobotMap.DRIVE_BACK_RIGHT_VICTOR);
+		frontLeft = new TalonSRX(RobotMap.DRIVE_FRONT_LEFT_TALON);
+    	frontRight = new TalonSRX(RobotMap.DRIVE_FRONT_RIGHT_TALON);
+    	backLeft = new TalonSRX(RobotMap.DRIVE_BACK_LEFT_TALON);
+    	backRight = new TalonSRX(RobotMap.DRIVE_BACK_RIGHT_TALON);
     	
     	/* Define motor controllers for drive train on main chassis
-    	 * Need this because FIRST only has Victor plugins and they have no idea what its like trying to find and install plugins from third party sites that look fairly sketchy and don't really install right and why can't just add the commonly used motor controllers that they have in their FIRST Choice Program
+    	 * Need this because FIRST only has TALON plugins and they have no idea what its like trying to find and install plugins from third party sites that look fairly sketchy and don't really install right and why can't just add the commonly used motor controllers that they have in their FIRST Choice Program
     	 * http://www.ctr-electronics.com/downloads/pdf/CTRE%20Toolsuite%20Installation%20Guide.pdf*/
-    /*	frontLeft = new CANTalon(RobotMap.DRIVE_FRONT_LEFT_TALON);
-    	frontRight = new CANTalon(RobotMap.DRIVE_FRONT_RIGHT_TALON);
-    	backLeft = new CANTalon(RobotMap.DRIVE_BACK_LEFT_TALON);
-    	backRight = new CANTalon(RobotMap.DRIVE_BACK_RIGHT_TALON);*/
+    /*	frontLeft = new TalonSRX(RobotMap.DRIVE_FRONT_LEFT_TALON);
+    	frontRight = new TalonSRX(RobotMap.DRIVE_FRONT_RIGHT_TALON);
+    	backLeft = new TalonSRX(RobotMap.DRIVE_BACK_LEFT_TALON);
+    	backRight = new TalonSRX(RobotMap.DRIVE_BACK_RIGHT_TALON);*/
     	
 	}
 	
@@ -72,7 +75,7 @@ public class Drive extends Subsystem {
     }
 	
 	/**
-     * Set the four drive victors based upon the specified power values 
+     * Set the four drive TALONs based upon the specified power values 
      * multiplied by the drivetrain voltage coefficient.
      * @param hPower Horizontal (strafing) power.  Pulled from the X axis of the
      * left stick. Positive goes right!
@@ -82,7 +85,7 @@ public class Drive extends Subsystem {
      */
 	
 	public void drive(double hPower, double vPower, double turn) {
-        frontLeft.set((vPower - hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
+        frontLeft.set(ControlMode.PercentOutput(vPower - hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
         frontRight.set((-vPower - hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
          backLeft.set((vPower + hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
         backRight.set((-vPower + hPower + (turn * turnPowerCoefficient)) * voltageCoefficient);
