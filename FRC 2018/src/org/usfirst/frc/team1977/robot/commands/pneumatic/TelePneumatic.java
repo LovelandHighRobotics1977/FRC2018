@@ -13,7 +13,15 @@ public class TelePneumatic extends CommandBase {
 	public void execute() {
 		boolean downButton = oi.getDriveJoystick().getLeftShoulderValue();
 		boolean upButton = oi.getDriveJoystick().getRightShoulderValue();
+		while(downButton) {
+			pneumatic.lower();
+		}
 		
+		while(upButton) {
+			pneumatic.raise();
+		}
+		
+		pneumatic.stop();
 	}
 	
 	protected boolean isFinished() {
@@ -21,11 +29,11 @@ public class TelePneumatic extends CommandBase {
 	}
 	
 	protected void interrupted() {
-		Pneumatic.stop();
+		pneumatic.stop();
 	}
 	
 	protected void end() {
-		Pneumatic.stop();
+		pneumatic.stop();
 	}
 	
 

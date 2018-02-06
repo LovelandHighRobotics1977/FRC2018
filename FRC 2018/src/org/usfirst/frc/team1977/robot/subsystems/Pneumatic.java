@@ -1,6 +1,5 @@
 package org.usfirst.frc.team1977.robot.subsystems;
 
-import org.usfirst.frc.team1977.robot.commands.drive.UserDrive;
 import org.usfirst.frc.team1977.robot.commands.pneumatic.TelePneumatic;
 
 import edu.wpi.first.wpilibj.Compressor;
@@ -37,10 +36,15 @@ public class Pneumatic extends Subsystem{
 	}
 	
 	public void lower() {
+		piston1.set(DoubleSolenoid.Value.kForward);
 	}
 	
 	public void stop() {
-		
+		piston1.set(DoubleSolenoid.Value.kOff);;
+	}
+	
+	public void stopCompressor() {
 		compressor1.stop();
+		
 	}
 }
