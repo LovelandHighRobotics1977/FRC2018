@@ -16,11 +16,11 @@ public class Pneumatic extends Subsystem{
 	Pneumatic(){
 		piston1 = new DoubleSolenoid(1, 2);
 		compressor1 = new Compressor(0);
-		compressor1.start();
+		compressor1.setClosedLoopControl(true);
 	}
 	
 	public void initDefaultCommand(){
-		 telePneumatic = new TelePneumatic();
+		telePneumatic = new TelePneumatic();
 	    setDefaultCommand(telePneumatic);
 	}
 	
@@ -41,6 +41,10 @@ public class Pneumatic extends Subsystem{
 	
 	public void stop() {
 		piston1.set(DoubleSolenoid.Value.kOff);;
+	}
+	
+	public void startClosedLoop(){
+		compressor1.setClosedLoopControl(true);
 	}
 	
 	public void stopCompressor() {

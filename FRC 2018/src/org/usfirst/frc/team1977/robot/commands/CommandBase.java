@@ -25,6 +25,5 @@ public abstract class CommandBase extends Command {
 		oi = OI.getInstance();
 		pneumatic = Pneumatic.getInstance();
 		
-		
 	}
 }
