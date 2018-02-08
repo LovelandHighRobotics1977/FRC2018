@@ -29,7 +29,19 @@ public class UserDrive extends CommandBase {
 			turn = 0;
 		}
 		drive.drive(-hPower, -vPower, -turn);
+		boolean downButton = oi.getDriveJoystick().getLeftShoulderValue();
+		boolean upButton = oi.getDriveJoystick().getRightShoulderValue();
+		if(downButton) {
+			pneumatic.lower();
+		}
 		
+		else if(upButton) {
+			pneumatic.raise();
+		}
+		
+		else {
+			pneumatic.stop();
+		}
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
@@ -39,12 +51,14 @@ public class UserDrive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-    	drive.stop();
+    		drive.stop();
+    		pneumatic.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	drive.stop();
+    		drive.stop();
+    		pneumatic.stop();
     }
 }
