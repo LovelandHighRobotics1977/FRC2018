@@ -58,8 +58,8 @@ public class DriveTime extends CommandBase {
 	
 	// Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	System.out.println("Cur " + System.currentTimeMillis());
-    	System.out.println("End " + endTime);
+    		System.out.println("Cur " + System.currentTimeMillis());
+    		System.out.println("End " + endTime);
         return (System.currentTimeMillis() >= endTime);
     }
 

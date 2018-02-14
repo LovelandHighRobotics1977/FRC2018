@@ -36,7 +36,7 @@ public class Pneumatic extends Subsystem{
 	}
 	
 	public void lower() {
-		piston1.set(DoubleSolenoid.Value.kForward);
+		piston1.set(DoubleSolenoid.Value.kReverse);
 	}
 	
 	public void stop() {

@@ -12,6 +12,8 @@ public class UserDrive extends CommandBase {
 	}
 	
 	protected void execute() {
+		final double armTime = 750;
+		double startTime;
 		double hPower = oi.getDriveJoystick().getLeftX();
 		double vPower = oi.getDriveJoystick().getLeftY();
 		double turn = (oi.getDriveJoystick().getLeftTriggerAxis() * 0.7)
@@ -41,6 +43,15 @@ public class UserDrive extends CommandBase {
 		
 		else {
 			pneumatic.stop();
+		}
+		boolean pushState = oi.getDriveJoystick().getAButtonValue();
+		boolean restState = oi.getDriveJoystick().getXButtonValue();
+		
+		if(pushState) {
+			grabber.pushArm();
+		}
+		else if(restState) {
+			grabber.restArm();
 		}
 	}
 	
