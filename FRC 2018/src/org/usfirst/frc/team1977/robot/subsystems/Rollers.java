@@ -1,17 +1,13 @@
 package org.usfirst.frc.team1977.robot.subsystems;
-
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Relay
 
 public class Rollers extends Subsystem {
 	public static Rollers instance;
 	ControlMode outputMode = ControlMode.PercentOutput;
-	private TalonSRX rollerMotor;
+	private Relay rollerMotor;
 	
-	public Rollers{rollerMotor = new TalonSRX();}
+	public Rollers{rollerMotor = new Relay(1, Relay.kForward);}
 	
 	public static Rollers getInstance() {
 		if (instance == null) {
@@ -20,12 +16,14 @@ public class Rollers extends Subsystem {
     	return instance;
 	}
 	
-	public void pushArm() {
+	public void push() {
 		double startTime = System.currentTimeMillis();
-		rollerMotor.set(outputMode, 1);
+		rollerMotor.setDirection(Relay.kForward);
 	}
 	
 	public void stop() {
-		rollerMotor.set(outputMode, 0);
+		rollerMotor.stopMotor();
 	}
 }
+
+//Probably will not work - based off of Grabber code which isn't working

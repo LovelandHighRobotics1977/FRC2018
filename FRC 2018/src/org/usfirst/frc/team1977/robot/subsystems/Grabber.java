@@ -12,10 +12,6 @@ public class Grabber extends Subsystem{
 	ControlMode outputMode = ControlMode.PercentOutput;
 	private TalonSRX rightArm;
 	private TalonSRX leftArm;
-
-	//This is not ok
-	//Do not do this on future robot
-	//add these to robot map once code pulled
 	
 	public Grabber(){
 		armTime = 750;
