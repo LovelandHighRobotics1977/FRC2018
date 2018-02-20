@@ -3,10 +3,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Relay;
 
 public class Rollers extends Subsystem {
+	
+	
 	public static Rollers instance;
 	private Relay rollerMotor;
+	
 	Rollers(){
-	rollerMotor = new Relay(1);
+		rollerMotor = new Relay(1);
 	}
 	public static Rollers getInstance() {
 		if (instance == null) {
