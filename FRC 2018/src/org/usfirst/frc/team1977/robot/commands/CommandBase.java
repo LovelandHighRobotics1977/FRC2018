@@ -4,6 +4,7 @@ import org.usfirst.frc.team1977.robot.OI;
 import org.usfirst.frc.team1977.robot.subsystems.Drive;
 import org.usfirst.frc.team1977.robot.subsystems.Grabber;
 import org.usfirst.frc.team1977.robot.subsystems.Pneumatic;
+import org.usfirst.frc.team1977.robot.subsystems.Rollers;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -15,6 +16,8 @@ public abstract class CommandBase extends Command {
 	protected static Drive drive;
 	protected static Pneumatic pneumatic;
 	protected static Grabber grabber;
+	protected static Rollers rollers;
+	
 	
 	/**
 	 * Initialize the CommandBase, in doing so accessing and initializing every
@@ -29,5 +32,6 @@ public abstract class CommandBase extends Command {
 		pneumatic = Pneumatic.getInstance();
 		grabber = Grabber.getInstance();
 		pneumatic.startClosedLoop();
+		rollers = Rollers.getInstance();
 	}
 }

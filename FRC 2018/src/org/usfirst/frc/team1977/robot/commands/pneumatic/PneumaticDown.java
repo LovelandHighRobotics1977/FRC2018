@@ -6,7 +6,7 @@ public class PneumaticDown extends CommandBase{
 	
 	public PneumaticDown() {
 		requires(pneumatic);
-		System.out.println("Pneumatic going up!");
+		System.out.println("Pneumatic going down!");
 	}
 	
 	protected void initialize() {

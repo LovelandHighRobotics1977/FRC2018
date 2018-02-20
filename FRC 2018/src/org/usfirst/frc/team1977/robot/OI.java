@@ -11,6 +11,7 @@ import org.usfirst.frc.team1977.robot.commands.grabber.ArmPush;
 import org.usfirst.frc.team1977.robot.commands.grabber.ArmRest;
 import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticDown;
 import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticUp;
+import org.usfirst.frc.team1977.robot.commands.roller.RollerPush;
 import org.usfirst.frc.team1977.robot.input.XBoxController;
 
 /**
@@ -65,6 +66,8 @@ public class OI {
 		
 		driveJoystick.leftThumbWhenPressed(new ArmRest());
 		driveJoystick.rightThumbWhenPressed(new ArmPush());
+		
+		driveJoystick.yWhenPressed(new RollerPush());
 		//Put things here when you want buttons to trigger
 		//Speed toggle
 		//driveJoystick.leftWhenPressed(new SpeedToggle());
