@@ -7,6 +7,10 @@
 
 package org.usfirst.frc.team1977.robot;
 
+import org.usfirst.frc.team1977.robot.commands.grabber.ArmPush;
+import org.usfirst.frc.team1977.robot.commands.grabber.ArmRest;
+import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticDown;
+import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticUp;
 import org.usfirst.frc.team1977.robot.input.XBoxController;
 
 /**
@@ -52,6 +56,11 @@ public class OI {
 		driveJoystick = new XBoxController(0);
 		//Set other controller here once we know if it is used 
 		//manipulatorJoystick = new XBoxController(1);
+		driveJoystick.rightWhileHeld(new PneumaticUp());
+		driveJoystick.leftWhileHeld(new PneumaticDown());
+		
+		driveJoystick.leftThumbWhenPressed(new ArmRest());
+		driveJoystick.rightThumbWhenPressed(new ArmPush());
 	}
 	
 	public void init() {

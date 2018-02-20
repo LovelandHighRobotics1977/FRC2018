@@ -23,9 +23,6 @@ public class Grabber extends Subsystem{
 		rightArm = new TalonSRX(11);
 	}
 	
-	public void initDefaultCommand(){
-		
-	}
 	
 	public static Grabber getInstance() {
 		if (instance == null) {

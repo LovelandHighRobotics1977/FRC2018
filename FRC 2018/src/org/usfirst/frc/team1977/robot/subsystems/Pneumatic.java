@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Pneumatic extends Subsystem{
 	public static Pneumatic instance;
-	private TelePneumatic telePneumatic;
 	private Compressor compressor1;
 	DoubleSolenoid piston1;
 
@@ -19,10 +18,6 @@ public class Pneumatic extends Subsystem{
 		compressor1.setClosedLoopControl(true);
 	}
 	
-	public void initDefaultCommand(){
-		telePneumatic = new TelePneumatic();
-	    setDefaultCommand(telePneumatic);
-	}
 	
 	public static Pneumatic getInstance() {
 		if (instance == null) {

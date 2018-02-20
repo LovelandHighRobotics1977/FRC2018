@@ -31,7 +31,7 @@ public class UserDrive extends CommandBase {
 			turn = 0;
 		}
 		drive.drive(-hPower, -vPower, -turn);
-		boolean downButton = oi.getDriveJoystick().getLeftShoulderValue();
+		/*boolean downButton = oi.getDriveJoystick().getLeftShoulderValue();
 		boolean upButton = oi.getDriveJoystick().getRightShoulderValue();
 		if(downButton) {
 			pneumatic.lower();
@@ -52,7 +52,7 @@ public class UserDrive extends CommandBase {
 		}
 		else if(restState) {
 			grabber.restArm();
-		}
+		}*/
 	}
 	
 	// Make this return true when this Command no longer needs to run execute()
