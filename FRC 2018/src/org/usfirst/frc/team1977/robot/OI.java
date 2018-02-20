@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team1977.robot;
 
+import org.usfirst.frc.team1977.robot.commands.drive.TurnTime;
 import org.usfirst.frc.team1977.robot.commands.grabber.ArmPush;
 import org.usfirst.frc.team1977.robot.commands.grabber.ArmRest;
 import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticDown;
@@ -55,19 +56,22 @@ public class OI {
 	
 	public OI() {
 		driveJoystick = new XBoxController(0);
+		
 		//Set other controller here once we know if it is used 
 		//manipulatorJoystick = new XBoxController(1);
 	}
 	
 	public void init() {
 		System.out.println("OI initializing");
-		driveJoystick.rightWhileHeld(new PneumaticUp());
-		driveJoystick.leftWhileHeld(new PneumaticDown());
+		driveJoystick.bWhenPressed(new PneumaticUp());
+		driveJoystick.xWhenPressed(new PneumaticDown());
 		
-		driveJoystick.leftThumbWhenPressed(new ArmRest());
-		driveJoystick.rightThumbWhenPressed(new ArmPush());
 		
 		driveJoystick.yWhenPressed(new RollerPush());
+
+		driveJoystick.leftWhenPressed(new ArmRest());
+		driveJoystick.rightWhenPressed(new ArmPush());
+//github.com/LovelandHighRobotics1977/FRC2018
 		//Put things here when you want buttons to trigger
 		//Speed toggle
 		//driveJoystick.leftWhenPressed(new SpeedToggle());
@@ -75,7 +79,7 @@ public class OI {
 		//driveJoystick.rightWhileHeld(new TurnTime(100,-1));
 		//driveJoystick.leftWhileHeld(new TurnTime(100,1));
 		//180 turn function
-		//driveJoystick.rightWhenPressed(new TurnTime(500,1)); //THIS NEEDS TO BE Adjusted
+		driveJoystick.aWhenPressed(new TurnTime(5000,1)); //THIS NEEDS TO BE Adjusted
 	}
 	
 	public static OI getInstance() {

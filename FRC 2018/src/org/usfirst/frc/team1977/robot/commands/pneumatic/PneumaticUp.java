@@ -3,13 +3,19 @@ package org.usfirst.frc.team1977.robot.commands.pneumatic;
 import org.usfirst.frc.team1977.robot.commands.CommandBase;
 
 public class PneumaticUp extends CommandBase{
+	long startTime;
+	long endTime;
+	long commandTime = 5000;
+	
 	public PneumaticUp() {
 		requires(pneumatic);
-		System.out.println("Pneumatic going up!");
+		
 	}
 	
 	protected void initialize() {
-
+		System.out.println("Pneumatic going up!");
+		startTime = System.currentTimeMillis();
+    	endTime = startTime + commandTime;
     }
 	
 	public void execute() {	
@@ -17,7 +23,7 @@ public class PneumaticUp extends CommandBase{
 	}
 	
 	protected boolean isFinished() {
-		return true;
+		return ( System.currentTimeMillis() >= endTime );
 	}
 	
 	protected void interrupted() {

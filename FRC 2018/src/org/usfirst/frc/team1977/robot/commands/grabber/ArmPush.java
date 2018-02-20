@@ -19,11 +19,12 @@ public class ArmPush extends CommandBase{
     protected void initialize() {
     		this.setTimeout(armTime);
     		this.startTime = System.currentTimeMillis();
+            System.out.println("Setting arms to active position");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		grabber.pushArm();
+    	grabber.pushArm();
     }
 	
 	// Make this return true when this Command no longer needs to run execute()
