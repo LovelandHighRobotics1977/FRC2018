@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team1977.robot.commands.AutonomousDefault;
 import org.usfirst.frc.team1977.robot.commands.CommandBase;
 import org.usfirst.frc.team1977.robot.commands.ExampleCommand;
 import org.usfirst.frc.team1977.robot.commands.drive.DriveTime;
@@ -89,6 +90,7 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		//autonomousCommand = m_chooser.getSelected();
 		System.out.println("Autonomous running");
+		autonomousCommand = (new AutonomousDefault());
 		//autonomousCommand = (new DriveTime( 0, 11, 20000));
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
