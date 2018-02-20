@@ -71,6 +71,7 @@ public class OI {
 
 		driveJoystick.leftWhenPressed(new ArmRest());
 		driveJoystick.rightWhenPressed(new ArmPush());
+		driveJoystick.startWhenPressed(new SpeedToggle());
 //github.com/LovelandHighRobotics1977/FRC2018
 		//Put things here when you want buttons to trigger
 		//Speed toggle

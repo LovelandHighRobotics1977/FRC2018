@@ -96,15 +96,17 @@ public class Drive extends Subsystem {
     }
 	
 	public boolean isSpeedToggle() {
-    	return speedToggle;
+    		return speedToggle;
     }
     
     public void setSpeedToggle(boolean speedToggle) {
-    	this.speedToggle = speedToggle;
-    	if (speedToggle) {
-    		voltageCoefficient = 0.5;
-    	} else {
-    		voltageCoefficient = 1.0;
-    	}
+    		this.speedToggle = speedToggle;
+    		if (speedToggle) {
+    			voltageCoefficient = 0.5;
+    		} else {
+    			voltageCoefficient = 1.0;
+    		}
     }
+    
+    
 }
