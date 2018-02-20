@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team1977.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -39,6 +40,11 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		  String gameData;
+		  gameData = DriverStation.getInstance().getGameSpecificMessage();
+		  if( gameData.length() > 0) {
+			  char switchPosition = gameData.charAt(0);
+		  }
 		CommandBase.init();
 		oi = new OI();
 		oi.init();
