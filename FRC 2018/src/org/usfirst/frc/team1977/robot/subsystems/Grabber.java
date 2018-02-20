@@ -55,4 +55,11 @@ public class Grabber extends Subsystem{
 		leftArm.set(outputMode, 0);
 		rightArm.set(outputMode, 0);
 	}
+
+
+	@Override
+	protected void initDefaultCommand() {
+		// TODO Auto-generated method stub
+		
+	}
 }

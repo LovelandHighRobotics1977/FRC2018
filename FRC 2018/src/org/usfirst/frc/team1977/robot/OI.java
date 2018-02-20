@@ -56,14 +56,15 @@ public class OI {
 		driveJoystick = new XBoxController(0);
 		//Set other controller here once we know if it is used 
 		//manipulatorJoystick = new XBoxController(1);
+	}
+	
+	public void init() {
+		System.out.println("OI initializing");
 		driveJoystick.rightWhileHeld(new PneumaticUp());
 		driveJoystick.leftWhileHeld(new PneumaticDown());
 		
 		driveJoystick.leftThumbWhenPressed(new ArmRest());
 		driveJoystick.rightThumbWhenPressed(new ArmPush());
-	}
-	
-	public void init() {
 		//Put things here when you want buttons to trigger
 		//Speed toggle
 		//driveJoystick.leftWhenPressed(new SpeedToggle());

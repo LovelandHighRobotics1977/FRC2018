@@ -23,6 +23,7 @@ public abstract class CommandBase extends Command {
 	 */
 	
 	public static void init() {
+		System.out.println("CommandBase initializing");
 		drive = Drive.getInstance();
 		oi = OI.getInstance();
 		pneumatic = Pneumatic.getInstance();

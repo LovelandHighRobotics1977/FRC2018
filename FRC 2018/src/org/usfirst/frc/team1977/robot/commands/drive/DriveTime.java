@@ -37,6 +37,7 @@ public class DriveTime extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Driving?");
         drive.drive(0, (driveSpeed / 12), 0);
         if (System.currentTimeMillis() <= halfTime) {
             if (System.currentTimeMillis() - lastRamp >= rampInterval) {

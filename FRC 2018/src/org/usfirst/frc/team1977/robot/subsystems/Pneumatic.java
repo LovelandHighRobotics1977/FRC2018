@@ -1,6 +1,5 @@
 package org.usfirst.frc.team1977.robot.subsystems;
 
-import org.usfirst.frc.team1977.robot.commands.pneumatic.TelePneumatic;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -44,6 +43,13 @@ public class Pneumatic extends Subsystem{
 	
 	public void stopCompressor() {
 		compressor1.stop();
+		
+	}
+
+
+	@Override
+	protected void initDefaultCommand() {
+		// TODO Auto-generated method stub
 		
 	}
 }

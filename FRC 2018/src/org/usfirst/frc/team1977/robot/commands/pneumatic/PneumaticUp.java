@@ -8,6 +8,10 @@ public class PneumaticUp extends CommandBase{
 		System.out.println("Pneumatic going up!");
 	}
 	
+	protected void initialize() {
+
+    }
+	
 	public void execute() {	
 		pneumatic.raise();	
 	}
