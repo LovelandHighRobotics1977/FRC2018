@@ -11,19 +11,18 @@ public class ArmRest extends CommandBase{
         // eg. requires(chassis);
 
         requires(grabber);
-        
-        System.out.println("Setting arms to rest position");
     }
     
  // Called just before this Command runs the first time
     protected void initialize() {
     		this.setTimeout(armTime);
     		this.startTime = System.currentTimeMillis();
+        	System.out.println("Setting arms to rest position");
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    		grabber.restArm();
+    	grabber.restArm();
     }
 	
 	// Make this return true when this Command no longer needs to run execute()

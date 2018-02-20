@@ -3,6 +3,11 @@ package org.usfirst.frc.team1977.robot.input;
 import java.util.Vector;
 
 import org.usfirst.frc.team1977.robot.RobotMap;
+import org.usfirst.frc.team1977.robot.commands.drive.TurnTime;
+import org.usfirst.frc.team1977.robot.commands.grabber.ArmPush;
+import org.usfirst.frc.team1977.robot.commands.grabber.ArmRest;
+import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticDown;
+import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticUp;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -37,6 +42,14 @@ public class XBoxController extends Joystick{
 			this.port = port;
 			initInputSources();
 			axisListeners = new Vector();
+			System.out.println("OI initializing");			
+			/*b.whenPressed(new PneumaticUp());
+			x.whenPressed(new PneumaticDown());
+			
+			shoulderLeft.whenPressed(new ArmRest());
+			shoulderRight.whenPressed(new ArmPush());
+			
+			a.whenPressed(new TurnTime(5000,1)); //THIS NEEDS TO BE Adjusted*/
 		}
 
 		/**
