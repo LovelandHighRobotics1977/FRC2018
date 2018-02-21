@@ -1,15 +1,18 @@
 package org.usfirst.frc.team1977.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.VictorSP;
 
 public class Rollers extends Subsystem {
 	
 	
 	public static Rollers instance;
-	private Relay rollerMotor;
+	//private Relay rollerMotor;
+	private VictorSP rollerMotor;
 	
 	Rollers(){
-		rollerMotor = new Relay(1);
+		rollerMotor = new VictorSP(0);
 	}
 	public static Rollers getInstance() {
 		if (instance == null) {
@@ -19,10 +22,11 @@ public class Rollers extends Subsystem {
 	}
 	
 	public void push() {
-		rollerMotor.set(Relay.Value.kForward);
+		rollerMotor.set(.20);
 	}
 	
 	public void stop() {
+		System.out.println(rollerMotor.get());
 		rollerMotor.stopMotor();
 	}
 	@Override

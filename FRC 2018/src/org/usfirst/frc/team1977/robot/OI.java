@@ -53,10 +53,12 @@ public class OI {
 	private static OI instance;
 	// XBox Controller references
 	private XBoxController driveJoystick;
+	private XBoxController otherJoystick;
 	//Other joystick will be put here as well
 	
 	public OI() {
 		driveJoystick = new XBoxController(0);
+		otherJoystick = new XBoxController(1);
 		
 		//Set other controller here once we know if it is used 
 		//manipulatorJoystick = new XBoxController(1);
@@ -64,16 +66,15 @@ public class OI {
 	
 	public void init() {
 		System.out.println("OI initializing");
-		driveJoystick.bWhenPressed(new PneumaticUp());
-		driveJoystick.xWhenPressed(new PneumaticDown());
+		otherJoystick.yWhenPressed(new PneumaticUp());
+		otherJoystick.aWhenPressed(new PneumaticDown());
 		
 		
-		driveJoystick.yWhenPressed(new RollerPush());
+		otherJoystick.xWhenPressed(new RollerPush());
 
-		driveJoystick.leftWhenPressed(new ArmRest());
-		driveJoystick.rightWhenPressed(new ArmPush());
+		// Add later otherJoystick.leftWhenPressed(new ArmRest());
+		// Add Later otherJoystick.rightWhenPressed(new ArmPush());
 		driveJoystick.startWhenPressed(new SpeedToggle());
-//github.com/LovelandHighRobotics1977/FRC2018
 		//Put things here when you want buttons to trigger
 		//Speed toggle
 		//driveJoystick.leftWhenPressed(new SpeedToggle());
@@ -81,7 +82,7 @@ public class OI {
 		//driveJoystick.rightWhileHeld(new TurnTime(100,-1));
 		//driveJoystick.leftWhileHeld(new TurnTime(100,1));
 		//180 turn function
-		driveJoystick.aWhenPressed(new TurnTime(5000,1)); //THIS NEEDS TO BE Adjusted
+		//driveJoystick.bWhenPressed(new TurnTime(5000,1)); //THIS NEEDS TO BE Adjusted
 	}
 	
 	public static OI getInstance() {

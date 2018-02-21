@@ -3,16 +3,17 @@ package org.usfirst.frc.team1977.robot.commands.roller;
 import org.usfirst.frc.team1977.robot.commands.CommandBase;
 
 public class RollerPush extends CommandBase{
+	
 	long startTime;
 	long endTime;
-	long commandTime = 5000;
+	long commandTime = 750;
 	public RollerPush() {
 		requires(rollers);
-		System.out.println("Roller is rolling");
 	}
 	protected void initialize() {
 		startTime = System.currentTimeMillis();
     	endTime = startTime + commandTime;
+    	System.out.println("Roller is rolling");
     }
 	
 	public void execute() {	
