@@ -6,7 +6,7 @@ public class RollerPush extends CommandBase{
 	
 	long startTime;
 	long endTime;
-	long commandTime = 750;
+	long commandTime = 1500;
 	public RollerPush() {
 		requires(rollers);
 	}
