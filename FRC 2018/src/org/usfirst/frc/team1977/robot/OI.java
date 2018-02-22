@@ -68,10 +68,13 @@ public class OI {
 		System.out.println("OI initializing");
 		otherJoystick.yWhenPressed(new PneumaticUp());
 		otherJoystick.aWhenPressed(new PneumaticDown());
-		
+	
 		
 		otherJoystick.xWhenPressed(new RollerPush());
-
+		
+		otherJoystick.leftWhenPressed(new ArmPush());
+		
+		otherJoystick.rightWhenPressed(new ArmRest());
 		// Add later otherJoystick.leftWhenPressed(new ArmRest());
 		// Add Later otherJoystick.rightWhenPressed(new ArmPush());
 		driveJoystick.startWhenPressed(new SpeedToggle());
