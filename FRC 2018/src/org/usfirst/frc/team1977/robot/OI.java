@@ -66,8 +66,8 @@ public class OI {
 	
 	public void init() {
 		System.out.println("OI initializing");
-		otherJoystick.yWhenPressed(new PneumaticUp());
-		otherJoystick.aWhenPressed(new PneumaticDown());
+		//otherJoystick.yWhenPressed(new PneumaticUp());
+		//otherJoystick.aWhenPressed(new PneumaticDown());
 	
 		
 		otherJoystick.xWhenPressed(new RollerPush());
