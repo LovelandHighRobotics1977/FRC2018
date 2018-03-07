@@ -18,7 +18,7 @@ public class Grabber extends Subsystem{
 	//add these to robot map once code pulled
 	
 	public Grabber(){
-		armTime = 750;
+		armTime = 1000.000001;
 		leftArm = new TalonSRX(10);
 		rightArm = new TalonSRX(11);
 	}
@@ -33,9 +33,9 @@ public class Grabber extends Subsystem{
 	
 	public void pushArm() {
 		double startTime = System.currentTimeMillis();
-		leftArm.set(outputMode, 1);
-		rightArm.set(outputMode, -1);
-		while(System.currentTimeMillis() > startTime + armTime){
+		leftArm.set(outputMode, -0.5);
+		rightArm.set(outputMode, 0.5);
+		while(System.currentTimeMillis() < startTime + armTime){
 			//do nothing
 		}
 		this.stop();
@@ -43,9 +43,9 @@ public class Grabber extends Subsystem{
 	
 	public void restArm() {
 		double startTime = System.currentTimeMillis();
-		leftArm.set(outputMode, -1);
-		rightArm.set(outputMode, 1);
-		while(System.currentTimeMillis() > startTime + armTime){
+		leftArm.set(outputMode, 0.5);
+		rightArm.set(outputMode, -0.5);
+		while(System.currentTimeMillis() < startTime + armTime){
 			//do nothing
 		}
 		this.stop();
