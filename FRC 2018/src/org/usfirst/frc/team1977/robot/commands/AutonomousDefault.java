@@ -16,4 +16,10 @@ public class AutonomousDefault extends CommandGroup {
 		addSequential(new TurnTime(500, 1));
 		addSequential(new DriveTime(0, 1, 1000));
 	}
+	
+	public void autonomousDirection(char characterIn) {
+		
+		
+		
+	}
 }

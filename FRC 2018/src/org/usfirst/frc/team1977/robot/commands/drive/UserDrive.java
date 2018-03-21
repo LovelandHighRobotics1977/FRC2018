@@ -12,8 +12,8 @@ public class UserDrive extends CommandBase {
 	}
 	
 	protected void execute() {
-		final double armTime = 750;
-		double startTime;
+//		final double armTime = 750;
+//		double startTime;
 		double hPower = oi.getDriveJoystick().getLeftX();
 		double vPower = oi.getDriveJoystick().getLeftY();
 		double turn = (oi.getDriveJoystick().getLeftTriggerAxis() * 0.7)

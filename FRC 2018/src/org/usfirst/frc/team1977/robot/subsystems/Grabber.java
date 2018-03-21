@@ -47,7 +47,7 @@ public class Grabber extends Subsystem{
 	
 	public void pushArm() {
 		double startTime = System.currentTimeMillis();
-		leftArm.set(outputMode, -0.1);
+		leftArm.set(outputMode, 0.1);
 		rightArm.set(outputMode, 0.1);
 		while(System.currentTimeMillis() < startTime + armTime){
 			//do nothing
@@ -57,7 +57,7 @@ public class Grabber extends Subsystem{
 	
 	public void restArm() {
 		double startTime = System.currentTimeMillis();
-		leftArm.set(outputMode, 0.1);
+		leftArm.set(outputMode, -0.1);
 		rightArm.set(outputMode, -0.1);
 		while(System.currentTimeMillis() < startTime + armTime){
 			//do nothing
