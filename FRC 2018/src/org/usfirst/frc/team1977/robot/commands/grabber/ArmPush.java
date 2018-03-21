@@ -4,8 +4,10 @@ import org.usfirst.frc.team1977.robot.commands.CommandBase;
 
 
 public class ArmPush extends CommandBase{
-	private double armTime = 750;
+	private double armTime = 500;
 	private double startTime;
+	//private double stopPosition = ;
+	
     public ArmPush() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -35,6 +37,8 @@ public class ArmPush extends CommandBase{
     // Called once after isFinished returns true
     protected void end() {
     		grabber.stop();
+    		System.out.print(grabber.getEncoderLeft());
+    		System.out.print(grabber.getEncoderRight());
     }
 
     // Called when another command which requires one or more of the same

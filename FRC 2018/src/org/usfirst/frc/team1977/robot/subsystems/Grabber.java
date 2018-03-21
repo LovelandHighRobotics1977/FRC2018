@@ -1,10 +1,12 @@
 package org.usfirst.frc.team1977.robot.subsystems;
 
 
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.Encoder;
 
 public class Grabber extends Subsystem{
 	public static Grabber instance;
@@ -12,15 +14,27 @@ public class Grabber extends Subsystem{
 	ControlMode outputMode = ControlMode.PercentOutput;
 	private TalonSRX rightArm;
 	private TalonSRX leftArm;
+	private Encoder encoderLeft = new Encoder(0,1, false, Encoder.EncodingType.k4X);
+	private Encoder encoderRight = new Encoder(2,3, false, Encoder.EncodingType.k4X);
 
-	//This is not ok
-	//Do not do this on future robot
-	//add these to robot map once code pulled
+	//This is ok
 	
 	public Grabber(){
-		armTime = 1000.000001;
+		armTime = 1000.0000000001;
 		leftArm = new TalonSRX(10);
 		rightArm = new TalonSRX(11);
+		
+		encoderLeft.setMaxPeriod(.1);
+		encoderLeft.setMinRate(10);
+		encoderLeft.setDistancePerPulse(5);
+		encoderLeft.setReverseDirection(true);
+		encoderLeft.setSamplesToAverage(7);
+		
+		encoderRight.setMaxPeriod(.1);
+		encoderRight.setMinRate(10);
+		encoderRight.setDistancePerPulse(5);
+		encoderRight.setReverseDirection(false);
+		encoderRight.setSamplesToAverage(7);
 	}
 	
 	
@@ -54,6 +68,14 @@ public class Grabber extends Subsystem{
 	public void stop() {
 		leftArm.set(outputMode, 0);
 		rightArm.set(outputMode, 0);
+	}
+	
+	public double getEncoderRight() {
+		return encoderRight.getDistance();
+	}
+	
+	public double getEncoderLeft() {
+		return encoderLeft.getDistance();
 	}
 
 
