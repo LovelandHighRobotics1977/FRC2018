@@ -18,6 +18,7 @@ import org.usfirst.frc.team1977.robot.commands.AutonomousDefault;
 import org.usfirst.frc.team1977.robot.commands.CommandBase;
 import org.usfirst.frc.team1977.robot.commands.ExampleCommand;
 import org.usfirst.frc.team1977.robot.commands.drive.DriveTime;
+import org.usfirst.frc.team1977.robot.commands.drive.TurnTime;
 import org.usfirst.frc.team1977.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -43,9 +44,13 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		  String gameData;
 		  gameData = DriverStation.getInstance().getGameSpecificMessage();
-		  if( gameData.length() > 0) {
-			  char switchPosition = gameData.charAt(0);
+		  if(gameData.length() > 0) {
+			  //char switchPosition = gameData.charAt(0);
+			 // if (switchPosition == 'a') {
+				  //TurnTime(500, 1);
+		  //}
 		  }
+			  
 		CommandBase.init();
 		oi = new OI();
 		oi.init();

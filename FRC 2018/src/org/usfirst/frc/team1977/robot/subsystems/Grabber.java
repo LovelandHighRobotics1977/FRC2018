@@ -20,7 +20,7 @@ public class Grabber extends Subsystem{
 	//This is ok
 	
 	public Grabber(){
-		armTime = 1000.0000000001;
+		armTime = 200;
 		leftArm = new TalonSRX(10);
 		rightArm = new TalonSRX(11);
 		
@@ -47,8 +47,8 @@ public class Grabber extends Subsystem{
 	
 	public void pushArm() {
 		double startTime = System.currentTimeMillis();
-		leftArm.set(outputMode, -0.5);
-		rightArm.set(outputMode, 0.5);
+		leftArm.set(outputMode, -0.1);
+		rightArm.set(outputMode, 0.1);
 		while(System.currentTimeMillis() < startTime + armTime){
 			//do nothing
 		}
@@ -57,8 +57,8 @@ public class Grabber extends Subsystem{
 	
 	public void restArm() {
 		double startTime = System.currentTimeMillis();
-		leftArm.set(outputMode, 0.5);
-		rightArm.set(outputMode, -0.5);
+		leftArm.set(outputMode, 0.1);
+		rightArm.set(outputMode, -0.1);
 		while(System.currentTimeMillis() < startTime + armTime){
 			//do nothing
 		}
