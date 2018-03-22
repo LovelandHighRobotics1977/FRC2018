@@ -2,14 +2,16 @@ package org.usfirst.frc.team1977.robot.commands.roller;
 
 import org.usfirst.frc.team1977.robot.commands.CommandBase;
 
-public class RollerPush extends CommandBase{
+public class RollerTime extends CommandBase{
 	
-	long startTime;
-	long endTime;
-	long commandTime = 1500;
+	private long startTime;
+	private long endTime;
+	private long commandTime;
 	
-	public RollerPush() {
+	public RollerTime(long time) {
 		requires(rollers);
+		commandTime = time;
+		
 	}
 	
 	protected void initialize() {

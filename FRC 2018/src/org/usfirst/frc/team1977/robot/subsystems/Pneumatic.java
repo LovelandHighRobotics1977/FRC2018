@@ -37,9 +37,9 @@ public class Pneumatic extends Subsystem{
 		piston1.set(DoubleSolenoid.Value.kOff);;
 	}
 	
-	public void startClosedLoop(){
+	/*public void startClosedLoop(){
 		compressor1.setClosedLoopControl(true);
-	}
+	}*/
 	
 	public void stopCompressor() {
 		compressor1.stop();
