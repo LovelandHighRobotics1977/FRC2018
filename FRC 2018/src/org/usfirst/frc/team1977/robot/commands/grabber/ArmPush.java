@@ -4,8 +4,9 @@ import org.usfirst.frc.team1977.robot.commands.CommandBase;
 
 
 public class ArmPush extends CommandBase{
-	private double armTime = 750;
-	private double startTime;
+	private long armTime = 750;
+	private long startTime;
+	
     public ArmPush() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -13,6 +14,12 @@ public class ArmPush extends CommandBase{
         requires(grabber);
         
         System.out.println("Setting arms to active position");
+    }
+    
+    public ArmPush(long time) {
+    		requires(grabber);
+    		System.out.println("Setting arms to active position");
+    		armTime = time;
     }
     
  // Called just before this Command runs the first time

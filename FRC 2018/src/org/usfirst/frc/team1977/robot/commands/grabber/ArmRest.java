@@ -6,12 +6,19 @@ import org.usfirst.frc.team1977.robot.commands.CommandBase;
 public class ArmRest extends CommandBase{
 	private double armTime = 750;
 	private double startTime;
+	
     public ArmRest() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
         requires(grabber);
     }
+    
+    public ArmRest(long time) {
+		requires(grabber);
+		System.out.println("Setting arms to rest position");
+		armTime = time;
+}
     
  // Called just before this Command runs the first time
     protected void initialize() {

@@ -66,18 +66,18 @@ public class OI {
 	
 	public void init() {
 		System.out.println("OI initializing");
-		//otherJoystick.yWhenPressed(new PneumaticUp());
-		//otherJoystick.aWhenPressed(new PneumaticDown());
+		otherJoystick.yWhenPressed(new PneumaticUp());
+		otherJoystick.aWhenPressed(new PneumaticDown());
 	
 		
 		otherJoystick.xWhenPressed(new RollerPush());
 		
-		otherJoystick.leftWhenPressed(new ArmPush());
+		otherJoystick.leftWhenPressed(new ArmPush(50));
 		
-		otherJoystick.rightWhenPressed(new ArmRest());
+		otherJoystick.rightWhileHeld(new ArmRest(50));
 		// Add later otherJoystick.leftWhenPressed(new ArmRest());
 		// Add Later otherJoystick.rightWhenPressed(new ArmPush());
-		driveJoystick.startWhenPressed(new SpeedToggle());
+		driveJoystick.startWhileHeld(new SpeedToggle());
 		//Put things here when you want buttons to trigger
 		//Speed toggle
 		//driveJoystick.leftWhenPressed(new SpeedToggle());
