@@ -56,13 +56,13 @@ public class Grabber extends Subsystem{
     		return instance;
 	}
 	
-	public boolean isSwitchTriggered() {
+	/*public boolean isSwitchTriggered() {
         return counter.get() > 0;
     }
 
     public void initializeCounter() {
         counter.reset();
-    }
+    }*/
 	
 	public void pushArm() {
 		double startTime = System.currentTimeMillis();

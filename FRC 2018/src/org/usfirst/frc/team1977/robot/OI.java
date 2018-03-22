@@ -72,12 +72,12 @@ public class OI {
 		
 		otherJoystick.xWhenPressed(new RollerPush());
 		
-		otherJoystick.leftWhenPressed(new ArmPush(50));
+		otherJoystick.leftWhileHeld(new ArmPush(50));
 		
 		otherJoystick.rightWhileHeld(new ArmRest(50));
 		// Add later otherJoystick.leftWhenPressed(new ArmRest());
 		// Add Later otherJoystick.rightWhenPressed(new ArmPush());
-		driveJoystick.startWhileHeld(new SpeedToggle());
+		driveJoystick.aWhenPressed(new SpeedToggle());
 		//Put things here when you want buttons to trigger
 		//Speed toggle
 		//driveJoystick.leftWhenPressed(new SpeedToggle());

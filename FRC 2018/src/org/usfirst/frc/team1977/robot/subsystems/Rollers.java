@@ -22,7 +22,7 @@ public class Rollers extends Subsystem {
 	}
 	
 	public void push() {
-		rollerMotor.set(-.50);
+		rollerMotor.set(-.30);
 	}
 	
 	public void stop() {

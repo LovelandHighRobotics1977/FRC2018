@@ -30,7 +30,7 @@ public class UserDrive extends CommandBase {
 		if (Math.abs(turn) < .2) {
 			turn = 0;
 		}
-		drive.drive(-hPower, -vPower, -turn);
+		drive.drive(hPower, -vPower, -turn);
 		/*boolean downButton = oi.getDriveJoystick().getLeftShoulderValue();
 		boolean upButton = oi.getDriveJoystick().getRightShoulderValue();
 		if(downButton) {
