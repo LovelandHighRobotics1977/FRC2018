@@ -45,7 +45,7 @@ public class Robot extends TimedRobot {
 		  String gameData;
 		  gameData = DriverStation.getInstance().getGameSpecificMessage();
 		  if(gameData.length() > 0) {
-			  //char switchPosition = gameData.charAt(0);
+			 char switchPosition = gameData.charAt(0);
 			 // if (switchPosition == 'a') {
 				  //TurnTime(500, 1);
 		  //}

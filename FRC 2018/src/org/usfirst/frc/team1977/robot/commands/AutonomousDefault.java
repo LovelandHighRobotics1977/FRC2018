@@ -10,6 +10,9 @@ import org.usfirst.frc.team1977.robot.commands.drive.TurnTime;
 
 
 public class AutonomousDefault extends CommandGroup {
+	private char switchPosition;
+	
+	
 	public AutonomousDefault() {
 		addSequential(new PneumaticOn());
 		addSequential(new DriveTime(0, 1, 2000));
@@ -21,5 +24,9 @@ public class AutonomousDefault extends CommandGroup {
 		
 		
 		
+	}
+	
+	public void setSwitchPosition(char characterIn) {
+		switchPosition = characterIn;
 	}
 }
