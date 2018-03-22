@@ -14,10 +14,14 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team1977.robot.commands.AutonomousDefault;
 import org.usfirst.frc.team1977.robot.commands.CommandBase;
 import org.usfirst.frc.team1977.robot.commands.ExampleCommand;
+import org.usfirst.frc.team1977.robot.commands.autonomous.AutonomousDefault;
+import org.usfirst.frc.team1977.robot.commands.autonomous.LeftAutonomous;
+import org.usfirst.frc.team1977.robot.commands.autonomous.MidAutonomous;
+import org.usfirst.frc.team1977.robot.commands.autonomous.RightAutonomous;
 import org.usfirst.frc.team1977.robot.commands.drive.DriveTime;
+import org.usfirst.frc.team1977.robot.commands.drive.TurnTime;
 import org.usfirst.frc.team1977.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -43,13 +47,20 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		  String gameData;
 		  gameData = DriverStation.getInstance().getGameSpecificMessage();
-		  if( gameData.length() > 0) {
-			  char switchPosition = gameData.charAt(0);
+		  if(gameData.length() > 0) {
+			 char switchPosition = gameData.charAt(0);
+			 // if (switchPosition == 'a') {
+				  //TurnTime(500, 1);
+		  //}
 		  }
+			  
 		CommandBase.init();
 		oi = new OI();
 		oi.init();
-		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		m_chooser.addDefault("Default Auto", new AutonomousDefault());
+		m_chooser.addDefault("Left Position", new LeftAutonomous());
+		m_chooser.addDefault("Right Position", new RightAutonomous());
+		m_chooser.addDefault("Middle Position", new MidAutonomous());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
