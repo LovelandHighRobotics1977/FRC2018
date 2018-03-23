@@ -14,9 +14,9 @@ private char switchPosition = Autonomous.getSwitchPosition();
 	
 	
 	public RightAutonomous() {
-		addSequential(new DriveTime(0, 1, 750));
-		addSequential(new DriveSide(0, 1, switchPosition == 'R'? 750: 2500));
-		addSequential(new DriveTime(0, .5, 1000));
+		addSequential(new DriveTime(-.25, -1, 750));
+		addSequential(new DriveSide(0, -1, switchPosition == 'R'? 750: 2500));
+		addSequential(new DriveTime(-.25, -.5, 750));
 		addSequential(new RollerPush());
 	}
 }

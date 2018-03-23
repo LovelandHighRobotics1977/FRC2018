@@ -9,7 +9,7 @@ public class DriveTime extends CommandBase {
 	/*private final String commandName = "Drive Forward";
     private final String subsytemName = "Drive";*/
 
-    private final double vPowerMin, vPowerMax, RAMP_RATE = 0.25, rampInterval;
+    private final double vPowerMin, vPowerMax, RAMP_RATE = 0.05, rampInterval;
     private final long startTime, halfTime, endTime;
     private long lastRamp;
     private double driveSpeed;

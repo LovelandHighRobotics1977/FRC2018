@@ -13,9 +13,9 @@ public class MidAutonomous extends CommandGroup {
 	
 	
 	public MidAutonomous() {
-		addSequential(new DriveTime(0, 1, 1000));
-		addSequential(new DriveSide(0, switchPosition == 'L'? -1 : 1, 750));
-		addSequential(new DriveTime(0, 1, 1000));
+		addSequential(new DriveTime(0, -1, 1000));
+		addSequential(new DriveSide(0, switchPosition == 'L'? 1 : -1, 750));
+		addSequential(new DriveTime(0, -1, 1000));
 		addSequential(new RollerPush());
 	}
 	
