@@ -8,7 +8,7 @@ import org.usfirst.frc.team1977.robot.commands.drive.DriveTime;
 public class AutonomousDefault extends CommandGroup {	
 	
 	public AutonomousDefault() {
-		addSequential(new DriveTime(0, .7, 4000));
+		addSequential(new DriveTime(0, .7, 3500));
 	}
 	
 }
