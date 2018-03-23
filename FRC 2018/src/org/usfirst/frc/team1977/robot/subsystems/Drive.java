@@ -21,6 +21,7 @@ public class Drive extends Subsystem {
 	//used for getInstance
 	
 	private boolean speedToggle = false;
+	private boolean quarterToggle = false;
 	//for speedToggle function to halve speed
 	
 	/*private TALON frontLeft;
@@ -106,7 +107,21 @@ public class Drive extends Subsystem {
     		} else {
     			voltageCoefficient = 1.0;
     		}
+    		//voltageCoefficient /= 2;
     }
     
+    public boolean isQuarterToggle() {
+		return quarterToggle;
+    }
+
+    public void setQuarterToggle(boolean quarterToggle) {
+		this.quarterToggle = quarterToggle;
+		if (speedToggle) {
+			voltageCoefficient = 0.25;
+		} else {
+			voltageCoefficient = 1.0;
+		}
+		//voltageCoefficient /= 4;
+}
     
 }

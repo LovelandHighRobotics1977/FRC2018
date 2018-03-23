@@ -4,7 +4,7 @@ import org.usfirst.frc.team1977.robot.commands.CommandBase;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class DriveTime extends CommandBase {
+public class DriveSide extends CommandBase {
 
 	/*private final String commandName = "Drive Forward";
     private final String subsytemName = "Drive";*/
@@ -14,7 +14,7 @@ public class DriveTime extends CommandBase {
     private long lastRamp;
     private double driveSpeed;
 
-    public DriveTime(double minSpeedPercent, double maxSpeedPercent, int timeMillis) {
+    public DriveSide(double minSpeedPercent, double maxSpeedPercent, int timeMillis) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
 
@@ -40,7 +40,7 @@ public class DriveTime extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	System.out.println("Driving?");
-        drive.drive(0, driveSpeed, 0);
+        drive.drive(driveSpeed, 0, 0);
         if (System.currentTimeMillis() <= halfTime) {
             if (System.currentTimeMillis() - lastRamp >= rampInterval) {
                 driveSpeed += (RAMP_RATE);

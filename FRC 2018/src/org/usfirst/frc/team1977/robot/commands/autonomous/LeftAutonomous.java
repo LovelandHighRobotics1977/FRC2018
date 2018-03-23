@@ -1,7 +1,9 @@
 package org.usfirst.frc.team1977.robot.commands.autonomous;
 
+import org.usfirst.frc.team1977.robot.commands.drive.DriveSide;
 import org.usfirst.frc.team1977.robot.commands.drive.DriveTime;
 import org.usfirst.frc.team1977.robot.commands.drive.TurnTime;
+import org.usfirst.frc.team1977.robot.commands.roller.RollerPush;
 import org.usfirst.frc.team1977.robot.commands.roller.RollerTime;
 import org.usfirst.frc.team1977.robot.subsystems.Autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -12,20 +14,9 @@ private char switchPosition = Autonomous.getSwitchPosition();
 	
 	
 	public LeftAutonomous() {
-		addSequential(new DriveTime(0, 1, 4000));
-		if (switchPosition == 'L') {
-			addSequential(new TurnTime(500, 1));
-			addSequential(new DriveTime(0, 1, 750));
-			addSequential(new RollerTime(1500));
-		}
-		
-		else {
-			addSequential(new DriveTime(0, 1, 1000));
-			addSequential(new TurnTime(500, 1));
-			addSequential(new DriveTime(0, 1, 6000));
-			addSequential(new TurnTime(500, 1));
-			addSequential(new DriveTime(0, 1, 750));
-			addSequential(new RollerTime(1500));
-		}
+		addSequential(new DriveTime(0, 1, 750));
+		addSequential(new DriveSide(0, -1, switchPosition == 'L'? 750: 2500));
+		addSequential(new DriveTime(0, .5, 1000));
+		addSequential(new RollerPush());
 	}
 }
