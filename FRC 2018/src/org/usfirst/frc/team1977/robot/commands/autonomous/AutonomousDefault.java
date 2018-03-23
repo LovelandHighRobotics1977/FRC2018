@@ -10,7 +10,7 @@ public class AutonomousDefault extends CommandGroup {
 	public AutonomousDefault() {
 		// Pause for 118 or any additional teams
 		//addSequential(new DriveTime(0, 0, 10000);
-		addSequential(new DriveTime(-1, -1, 2250));
+		addSequential(new DriveTime(-.4, -.4, 3000));
 	}
 	
 }

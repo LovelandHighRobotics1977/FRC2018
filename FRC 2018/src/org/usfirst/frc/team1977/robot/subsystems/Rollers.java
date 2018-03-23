@@ -26,7 +26,7 @@ public class Rollers extends Subsystem {
 	}
 	
 	public void hold() {
-		rollerMotor.set(.30);
+		rollerMotor.set(.20);
 	}
 	public void stop() {
 		System.out.println(rollerMotor.get());
