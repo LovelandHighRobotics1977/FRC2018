@@ -14,8 +14,10 @@ import org.usfirst.frc.team1977.robot.commands.grabber.ArmPush;
 import org.usfirst.frc.team1977.robot.commands.grabber.ArmRest;
 import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticDown;
 import org.usfirst.frc.team1977.robot.commands.pneumatic.PneumaticUp;
+import org.usfirst.frc.team1977.robot.commands.roller.RollerHold;
 import org.usfirst.frc.team1977.robot.commands.roller.RollerPush;
 import org.usfirst.frc.team1977.robot.input.XBoxController;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -76,6 +78,8 @@ public class OI {
 		otherJoystick.leftWhileHeld(new ArmPush(50));
 		
 		otherJoystick.rightWhileHeld(new ArmRest(50));
+		
+		otherJoystick.bWhileHeld(new RollerHold());
 		// Add later otherJoystick.leftWhenPressed(new ArmRest());
 		// Add Later otherJoystick.rightWhenPressed(new ArmPush());
 		driveJoystick.aWhenPressed(new SpeedToggle());
