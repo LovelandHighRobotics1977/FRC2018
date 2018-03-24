@@ -13,9 +13,10 @@ public class UserDrive extends CommandBase {
 	
 	protected void execute() {
 //		final double armTime = 750;
-//		double startTime;
+//		double startTime; 
 		double hPower = oi.getDriveJoystick().getLeftX();
 		double vPower = oi.getDriveJoystick().getLeftY();
+		
 		double turn = (oi.getDriveJoystick().getLeftTriggerAxis() * 0.5)
 				- (oi.getDriveJoystick().getRightTriggerAxis() * 0.5);
 		
@@ -31,6 +32,7 @@ public class UserDrive extends CommandBase {
 			turn = 0;
 		}
 		drive.drive(hPower, -vPower, -turn);
+		//drive.drive(hPower, vPower, turn);
 		/*boolean downButton = oi.getDriveJoystick().getLeftShoulderValue();
 		boolean upButton = oi.getDriveJoystick().getRightShoulderValue();
 		if(downButton) {

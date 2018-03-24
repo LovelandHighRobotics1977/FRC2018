@@ -103,7 +103,7 @@ public class Robot extends TimedRobot {
 		System.out.println("Autonomous running");
 		//autonomousCommand = m_chooser.getSelected();
 		//autonomousCommand = (new DriveTime( 0, 11, 20000));
-		autonomousCommand = new AutonomousDefault();
+		autonomousCommand = new MidAutonomous();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand

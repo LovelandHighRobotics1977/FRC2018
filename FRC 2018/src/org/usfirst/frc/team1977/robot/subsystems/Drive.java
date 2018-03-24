@@ -22,6 +22,8 @@ public class Drive extends Subsystem {
 	
 	private boolean speedToggle = false;
 	private boolean quarterToggle = false;
+	private long frontDirection = 0;
+	private float frontCo = 1;
 	//for speedToggle function to halve speed
 	
 	/*private TALON frontLeft;
@@ -122,6 +124,26 @@ public class Drive extends Subsystem {
 			voltageCoefficient = 1.0;
 		}
 		//voltageCoefficient /= 4;
-}
+    }
+	/*public void setFrontToggle(long direction) {
+		frontDirection = direction;
+		if(frontDirection == 1) {
+			frontCo = 1;
+		}
+		else if(frontDirection == 2) {
+			frontCo = -1;
+		}
+		else if (frontDirection == 3) {
+			
+		}
+		else if (frontDirection == 4) {
+			
+		}
+	}
+	
+	public long getFront() {
+		return frontDirection;
+	}*/
+
     
 }

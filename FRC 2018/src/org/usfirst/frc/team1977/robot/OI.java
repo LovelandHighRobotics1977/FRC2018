@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team1977.robot;
 
+import org.usfirst.frc.team1977.robot.commands.drive.FrontToggle;
 import org.usfirst.frc.team1977.robot.commands.drive.QuarterToggle;
 import org.usfirst.frc.team1977.robot.commands.drive.SpeedToggle;
 import org.usfirst.frc.team1977.robot.commands.drive.TurnTime;
@@ -82,8 +83,12 @@ public class OI {
 		otherJoystick.bWhileHeld(new RollerHold());
 		// Add later otherJoystick.leftWhenPressed(new ArmRest());
 		// Add Later otherJoystick.rightWhenPressed(new ArmPush());
-		driveJoystick.aWhenPressed(new SpeedToggle());
-		driveJoystick.xWhenPressed(new QuarterToggle());
+		//driveJoystick.aWhenPressed(new FrontToggle(2));
+		//driveJoystick.yWhenPressed(new FrontToggle(1));
+		//driveJoystick.xWhenPressed(new FrontToggle(3));
+		//driveJoystick.bWhenPressed(new FrontToggle(4));
+		driveJoystick.rightWhenPressed(new SpeedToggle());
+		driveJoystick.leftWhenPressed(new QuarterToggle());
 		//Put things here when you want buttons to trigger
 		//Speed toggle
 		//driveJoystick.leftWhenPressed(new SpeedToggle());
